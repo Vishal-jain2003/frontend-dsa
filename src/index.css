@@ -1,0 +1,310 @@
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+  
+    --primary: 0 100% 50%;
+    --primary-foreground: 0 0% 100%;
+  
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 10%;
+  
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 40%;
+  
+    --accent: 0 100% 90%;
+    --accent-foreground: 0 0% 10%;
+  
+    --destructive: 0 100% 40%;
+    --destructive-foreground: 0 0% 100%;
+  
+    --border: 0 0% 80%;
+    --input: 0 0% 60%;
+    --ring: 0 100% 50%;
+  
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+  }
+  
+
+  
+
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+  
+    --primary: 0 100% 50%;
+    --primary-foreground: 0 0% 100%;
+  
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 100%;
+  
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 80%;
+  
+    --accent: 0 100% 30%;
+    --accent-foreground: 0 0% 100%;
+  
+    --destructive: 0 100% 40%;
+    --destructive-foreground: 0 0% 100%;
+  
+    --border: 0 0% 30%;
+    --input: 0 0% 40%;
+    --ring: 0 100% 50%;
+  
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    @apply bg-white/70 dark:bg-black/50 backdrop-blur-lg border border-white/20 dark:border-black/20;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .animated-link {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+}
+
+/* Custom scrollbar */
+/* ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/40;
+}
+
+/* Page transitions */
+/* .page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 400ms, transform 400ms;
+} */ 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----------------------------------
+   🎨 CSS Variables (HSL for Themes)
+------------------------------------ */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 10%;
+
+    --primary: 0 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 240 20% 98%;
+    --muted-foreground: 220 15% 50%;
+
+    --accent: 340 82% 72%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 85%;
+    --ring: 0 100% 60%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+  }
+
+  .dark {
+    --background: 240 10% 8%;
+    --foreground: 0 0% 100%;
+
+    --primary: 0 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 47% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 223 10% 20%;
+    --muted-foreground: 220 15% 70%;
+
+    --accent: 340 82% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 25%;
+    --input: 220 13% 30%;
+    --ring: 0 100% 60%;
+
+    --card: 240 10% 10%;
+    --card-foreground: 0 0% 100%;
+  }
+}
+
+/* -----------------------
+   🔤 Base Styles
+------------------------ */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  a {
+    @apply text-primary hover:underline hover:text-accent transition-colors duration-200;
+  }
+}
+
+/* ----------------------------
+   🧩 Components & Utilities
+----------------------------- */
+@layer components {
+  .glassmorphism {
+    @apply bg-white/30 dark:bg-white/10 backdrop-blur-xl border border-white/10 dark:border-white/5 shadow-xl transition-all duration-500;
+  }
+
+  .hover-scale {
+    @apply transform transition-transform duration-300 ease-in-out hover:scale-105;
+  }
+
+  .animated-link {
+    @apply relative transition-all duration-300 ease-in-out;
+  }
+
+  .animated-link::after {
+    content: "";
+    @apply absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-primary transition-transform duration-300 ease-in-out;
+  }
+
+  .animated-link:hover::after {
+    @apply scale-x-100;
+  }
+
+  .card-hover {
+    @apply transition-transform transition-shadow duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02];
+  }
+
+  .frosted-glass {
+    @apply bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg transition-all duration-500;
+  }
+
+  .btn-glow {
+    @apply text-white bg-primary hover:bg-accent shadow-md hover:shadow-xl transition duration-300 ease-in-out rounded-lg;
+  }
+}
+
+/* -------------------------
+   🖱️ Custom Scrollbar
+-------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full transition-colors duration-300;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/60;
+}
+
+/* ----------------------------
+   ✨ Page Transition Effects
+----------------------------- */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
