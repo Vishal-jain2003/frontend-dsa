@@ -54,7 +54,7 @@ const ProfileSection: React.FC = () => {
       const imageUrl = data.secure_url;
       setProfileImage(imageUrl);
 
-      const saveRes = await fetch('http://localhost:8080/api/profile/upload', {
+      const saveRes = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/profile/upload`, {
         method: 'POST',
         body: JSON.stringify({ userId: user.id, imageUrl }),
         headers: { 'Content-Type': 'application/json' },
