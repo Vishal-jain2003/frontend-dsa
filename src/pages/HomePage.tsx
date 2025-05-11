@@ -449,7 +449,8 @@ const HomePage = () => {
             <div className="inline-block rounded-full bg-primary/10 px-4 py-2 text-lm font-medium text-primary mb-5">
               Developer
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground dark:text-white mb-6">
+
             Creator of AI-DSA Tracker
 
 {" "}
@@ -481,9 +482,10 @@ const HomePage = () => {
             <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-5">
               Testimonials
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground dark:text-white mb-6">
               What Our Users Say
             </h2>
+            {/* className="text-3xl md:text-4xl font-bold tracking-tight text-foreground dark:text-white mb-6" */}
             <p className="text-lg text-muted-foreground">
               Join thousands of developers who have improved their DSA skills with our platform.
             </p>
@@ -515,7 +517,8 @@ const HomePage = () => {
                       loading="lazy"
                     />
                     <div className="ml-4">
-                      <h4 className="font-semibold text-lg text-white">{testimonial.name}</h4>
+                     <h4 className="font-semibold text-lg text-foreground dark:text-white">{testimonial.name}</h4>
+
                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>
                   </div>
