@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { useStreaks } from '@/contexts/StreakContext';
+// import { useStreaks } from '@/contexts/StreakContext';
 import { cn } from '../../lib/utils';
 import {
   Menu,
@@ -11,16 +11,19 @@ import {
   Home,
   List,
   BarChart2,
-  Settings,
+  // Settings,
   LogOut,
   Moon,
   Sun,
+  HelpCircle,
+
+
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const NavBar: React.FC = () => {
   const { user, logout } = useAuth();
-  const { currentStreak } = useStreaks();
+  // const { currentStreak } = useStreaks();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -50,7 +53,12 @@ const NavBar: React.FC = () => {
     { title: 'Dashboard', href: '/dashboard', icon: Home },
     { title: 'Problems', href: '/problems', icon: List },
     { title: 'Statistics', href: '/statistics', icon: BarChart2 },
-    { title: 'Settings', href: '/settings', icon: Settings },
+    { title: 'MCQs', href: '/mcqs', icon: HelpCircle
+
+ },
+
+
+    // { title: 'Settings', href: '/settings', icon: Settings },
   ];
 
   return (
@@ -98,9 +106,7 @@ const NavBar: React.FC = () => {
                   <span>{link.title}</span>
                 </Link>
               ))}
-              <div className="text-sm px-3 py-1 bg-primary/10 rounded-full text-primary">
-                🔥 <span className="font-semibold">{currentStreak}</span> day streak
-              </div>
+              
               <Button variant="ghost" size="icon" onClick={toggleTheme}>
                 {theme === 'light' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
               </Button>
@@ -151,9 +157,9 @@ const NavBar: React.FC = () => {
                 </Link>
               ))}
               <div className="flex justify-between items-center p-3">
-                <span className="px-3 py-1 bg-primary/10 rounded-full text-primary">
+                {/* <span className="px-3 py-1 bg-primary/10 rounded-full text-primary">
                   🔥 <span className="font-semibold">{currentStreak}</span> day streak
-                </span>
+                </span> */}
                 <Button variant="ghost" size="icon" onClick={toggleTheme}>
                   {theme === 'light' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
                 </Button>

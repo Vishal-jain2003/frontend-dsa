@@ -3,7 +3,7 @@ import Layout from '@/components/layout/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useProblems } from '@/contexts/ProblemContext';
-import { useStreaks } from '@/contexts/StreakContext';
+// import { useStreaks } from '@/contexts/StreakContext';
 import { 
   BarChart, 
   PieChart, 
@@ -24,7 +24,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 const StatisticsPage: React.FC = () => {
   const { problems, stats } = useProblems();
-  const { streakData, currentStreak, longestStreak } = useStreaks();
+  // const { streakData, currentStreak, longestStreak } = useStreaks();
   const [activeTab, setActiveTab] = useState('summary');
   const isMobile = useIsMobile();
 
@@ -59,11 +59,11 @@ const StatisticsPage: React.FC = () => {
     .sort((a, b) => b.value - a.value)
     .slice(0, 10); // Top 10 topics
 
-  // Prepare streak data for line chart
-  const streakChartData = streakData.map(streak => ({
-    date: new Date(streak.date).toLocaleDateString(),
-    count: streak.count,
-  }));
+  // // Prepare streak data for line chart
+  // const streakChartData = streakData.map(streak => ({
+  //   date: new Date(streak.date).toLocaleDateString(),
+  //   count: streak.count,
+  // }));
 
   // Prepare submissions over time chart
   const getMonthlySubmissions = () => {
@@ -95,16 +95,16 @@ const StatisticsPage: React.FC = () => {
         </div>
 
         <Tabs defaultValue={activeTab} onValueChange={setActiveTab} className="space-y-8">
-          <TabsList className="grid w-full md:w-auto grid-cols-3">
+          <TabsList className="grid w-full md:w-auto grid-cols-2">
             <TabsTrigger value="summary">Summary</TabsTrigger>
             <TabsTrigger value="problems">Problems</TabsTrigger>
-            <TabsTrigger value="streaks">Streaks</TabsTrigger>
+            {/* <TabsTrigger value="streaks">Streaks</TabsTrigger> */}
           </TabsList>
 
           {/* Summary Tab */}
           <TabsContent value="summary" className="space-y-8">
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <Card className="card-hover">
                 <CardContent className="pt-6">
                   <div className="text-center">
@@ -126,14 +126,14 @@ const StatisticsPage: React.FC = () => {
                 </CardContent>
               </Card>
               
-              <Card className="card-hover">
+              {/* <Card className="card-hover">
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <p className="text-muted-foreground text-sm mb-1">Current Streak</p>
                     <p className="text-3xl font-bold text-primary">{currentStreak}</p>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
               
               <Card className="card-hover">
                 <CardContent className="pt-6">
@@ -309,7 +309,7 @@ const StatisticsPage: React.FC = () => {
             </div>
           </TabsContent>
 
-          {/* Streaks Tab */}
+          {/* Streaks Tab
           <TabsContent value="streaks" className="space-y-8">
             <Card className="card-hover">
               <CardHeader>
@@ -380,7 +380,7 @@ const StatisticsPage: React.FC = () => {
                 </div>
               </CardContent>
             </Card>
-          </TabsContent>
+          </TabsContent> */}
         </Tabs>
       </div>
     </Layout>

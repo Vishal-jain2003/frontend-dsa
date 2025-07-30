@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { PlusCircle, ArrowUpRight, BookOpen, CheckCircle, Clock, Calendar, Trophy } from 'lucide-react';
 import { useProblems } from '@/contexts/ProblemContext';
-import { useStreaks } from '@/contexts/StreakContext';
+// import { useStreaks } from '@/contexts/StreakContext';
 import { Link } from 'react-router-dom';
 import { Progress } from '@/components/ui/progress';
 import { useAuth } from '@/contexts/AuthContext';
@@ -14,12 +14,12 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 import ProfileSection from '@/components/profile/ProfileSection';
-import ActivityHeatmap from '@/components/activity/ActivityHeatmap';
+// import ActivityHeatmap from '@/components/activity/ActivityHeatmap';
 
 const DashboardPage: React.FC = () => {
   const { user } = useAuth();
   const { problems, stats } = useProblems();
-  const { currentStreak, longestStreak } = useStreaks();
+  // const { currentStreak, longestStreak } = useStreaks();
   const isMobile = useIsMobile();
   
   // Stats cards
@@ -42,18 +42,18 @@ const DashboardPage: React.FC = () => {
       icon: Clock,
       color: 'bg-purple-500/10 text-purple-500',
     },
-    {
-      title: 'Current Streak',
-      value: currentStreak,
-      icon: Calendar,
-      color: 'bg-orange-500/10 text-orange-500',
-    },
-    {
-      title: 'Longest Streak',
-      value: longestStreak,
-      icon: Trophy,
-      color: 'bg-red-500/10 text-red-500',
-    },
+    // {
+    //   title: 'Current Streak',
+    //   // value: currentStreak,
+    //   icon: Calendar,
+    //   color: 'bg-orange-500/10 text-orange-500',
+    // },
+    // {
+    //   title: 'Longest Streak',
+    //   // value: longestStreak,
+    //   icon: Trophy,
+    //   color: 'bg-red-500/10 text-red-500',
+    // },
   ];
 
   // Get last 5 problems
@@ -76,9 +76,9 @@ const DashboardPage: React.FC = () => {
               <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                 <div>
                   <h1 className="text-2xl md:text-3xl font-bold">Welcome back, {user?.username}</h1>
-                  <p className="text-muted-foreground mt-2">
+                  {/* <p className="text-muted-foreground mt-2">
                     You've solved {stats.solved} problems and have a {currentStreak} day streak.
-                  </p>
+                  </p> */}
                 </div>
                 
                 <Dialog>
@@ -112,16 +112,16 @@ const DashboardPage: React.FC = () => {
                 <CardDescription>Track your problem-solving progress</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+                <div className="grid grid-cols-3 lg:grid-cols-3 gap-5">
                   {statsCards.map((stat, index) => (
-                    <div key={index} className="card-hover p-4">
+                    <div key={index} className="card-hover p-5">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-muted-foreground text-sm">{stat.title}</p>
-                          <p className="text-2xl font-bold mt-1">{stat.value}</p>
+                          <p className="text-muted-foreground text-xl">{stat.title}</p>
+                          <p className="text-3xl font-bold mt-1">{stat.value}</p>
                         </div>
-                        <div className={cn("w-10 h-10 rounded-full flex items-center justify-center", stat.color)}>
-                          <stat.icon className="h-5 w-5" />
+                        <div className={cn("w-14 h-14 rounded-full flex items-center justify-center", stat.color)}>
+                          <stat.icon className="h-8 w-8" />
                         </div>
                       </div>
                     </div>
@@ -133,9 +133,9 @@ const DashboardPage: React.FC = () => {
         </div>
 
         {/* Activity Heatmap */}
-        <section className="mb-8">
+        {/* <section className="mb-8">
           <ActivityHeatmap />
-        </section>
+        </section> */}
 
         {/* Progress and Recent Problems Section */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">

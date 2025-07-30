@@ -120,13 +120,27 @@ export const authAPI = {
 };
 
 // Problems API
+export interface McqRequest {
+  topic: string;
+}
+
+export interface McqResponse {
+  question: string;
+  options: { [key: string]: string };
+  correctAnswer: string;
+}
+
+// Problems API
 export const problemsAPI = {
   getAll: (userId: number) => api.get(`/problems/${userId}`),
   get: (id: number) => api.get(`/problems/${id}`),
   create: (data: any) => api.post('/problems', data),
   update: (id: number, data: any) => api.put(`/problems/${id}`, data),
   delete: (id: number) => api.delete(`/problems/${id}`),
-  getSimilar: (id: number) => api.get(`/problems/${id}/similar`)
+  getSimilar: (id: number) => api.get(`/problems/${id}/similar`),
+
+  generateMcqs: (topic: string) => api.post<McqResponse[]>('/mcqs/generate', { topic } as McqRequest),
+
 };
 
 // Streaks API

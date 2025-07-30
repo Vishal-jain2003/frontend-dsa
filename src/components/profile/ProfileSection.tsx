@@ -81,7 +81,7 @@ const ProfileSection: React.FC = () => {
       <CardContent>
         <div className="flex flex-col sm:flex-row items-center gap-6">
           <div className="relative">
-            <Avatar className="h-24 w-24 border-4 border-background">
+            <Avatar className="h-30 w-30 border-4 border-background">
               <AvatarImage
                 src={profileImage || `https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`}
                 alt={user.username}
@@ -115,14 +115,14 @@ const ProfileSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+            {/* <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
               <Link to="/settings">
                 <Button variant="outline" size="sm">
                   <Edit className="h-4 w-4 mr-2" />
                   Edit Profile
                 </Button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </CardContent>
